@@ -1,6 +1,7 @@
 package com.Pratian.QuickFood.Automation.TestClasses;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,6 +42,7 @@ public class TestLogin extends BaseTest {
 		login.clickLogin(driver);
 		log.debug("loginIn button clicked");
 		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Assert.assertEquals(login.getProfileName(driver), "SHANKAR");
 		log.debug("assertion passed");
 	}
